@@ -12,7 +12,7 @@ export const register = (app: express.Application) => {
             .then((claimables) => {
                 res.send(claimables);
             }, (reason) => {
-                res.status(500).send(reason);
+                res.status(500).send(reason.toString());
             });
     });
 };

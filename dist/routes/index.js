@@ -10,6 +10,10 @@ exports.register = (app) => {
         bff_1.claimable(authToken)
             .then((claimables) => {
             res.send(claimables);
+        }, (reason) => {
+            // tslint:disable-next-line:no-console
+            console.log("rejected from index: " + reason);
+            res.status(500).send(reason.toString());
         });
     });
 };
